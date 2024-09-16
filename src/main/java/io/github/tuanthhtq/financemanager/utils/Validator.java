@@ -1,4 +1,4 @@
-package io.github.tuanthhtq.springbootwithauthskeleton.utils;
+package io.github.tuanthhtq.financemanager.utils;
 
 import org.springframework.stereotype.Component;
 

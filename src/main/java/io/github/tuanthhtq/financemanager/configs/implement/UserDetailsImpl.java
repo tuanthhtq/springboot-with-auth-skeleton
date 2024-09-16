@@ -1,14 +1,18 @@
-package io.github.tuanthhtq.springbootwithauthskeleton.configs.implement;
+package io.github.tuanthhtq.financemanager.configs.implement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.github.tuanthhtq.springbootwithauthskeleton.entities.Users;
+import io.github.tuanthhtq.financemanager.entities.Users;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author io.github.tuanthhtq
@@ -16,43 +20,33 @@ import java.util.Collection;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
-	@Getter
 	private String id;
-
 	private String username;
-
-	@Getter
-	private String phone;
-
 	@JsonIgnore
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(String id, String phone, String password,
+	public UserDetailsImpl(String id, String username, String password,
 	                       Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
-		this.username = phone;
-		this.phone = phone;
+		this.username = username;
 		this.password = password;
 		this.authorities = authorities;
 	}
 
-	public UserDetailsImpl() {
-	}
-
 	@Transactional
 	public UserDetailsImpl build(Users user) {
-//		List<GrantedAuthority> authorities = user.getRoles().stream()
-//				.map(role -> new SimpleGrantedAuthority(role.getRoleName()))
-//				.collect(Collectors.toList());
+		List<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
 		return new UserDetailsImpl(
-//				user.getId(),
-//				user.getPhone(),
-//				user.getPassword(),
-//				authorities
+				user.getId(),
+				user.getUsername(),
+				user.getPassword(),
+				authorities
 		);
 	}
 

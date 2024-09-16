@@ -1,6 +1,6 @@
-package io.github.tuanthhtq.springbootwithauthskeleton.utils;
+package io.github.tuanthhtq.financemanager.utils;
 
-import io.github.tuanthhtq.springbootwithauthskeleton.configs.implement.UserDetailServiceImpl;
+import io.github.tuanthhtq.financemanager.configs.implement.UserDetailServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,12 +25,8 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-	private final UserDetailServiceImpl uds;
-
 	@Autowired
-	public JwtAuthenticationFilter(UserDetailServiceImpl uds) {
-		this.uds = uds;
-	}
+	private UserDetailServiceImpl uds;
 
 	@Override
 	protected void doFilterInternal(
