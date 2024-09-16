@@ -1,4 +1,4 @@
-package io.github.tuanthhtq.financemanager;
+package io.github.tuanthhtq.springbootwithauthskeleton;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

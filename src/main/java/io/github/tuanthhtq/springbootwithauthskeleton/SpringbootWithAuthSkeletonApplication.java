@@ -1,13 +1,13 @@
-package io.github.tuanthhtq.financemanager;
+package io.github.tuanthhtq.springbootwithauthskeleton;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FinanceManagerApplication {
+public class SpringbootWithAuthSkeletonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FinanceManagerApplication.class, args);
+		SpringApplication.run(SpringbootWithAuthSkeletonApplication.class, args);
 	}
 
 }

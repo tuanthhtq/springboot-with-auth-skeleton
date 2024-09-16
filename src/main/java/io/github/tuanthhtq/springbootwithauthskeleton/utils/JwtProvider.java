@@ -1,6 +1,5 @@
-package io.github.tuanthhtq.financemanager.utils;
+package io.github.tuanthhtq.springbootwithauthskeleton.utils;
 
-import io.github.tuanthhtq.financemanager.configs.implement.UserDetailsImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -20,7 +19,7 @@ import java.util.function.Function;
 public class JwtProvider {
 	private static final String SECRET = "dolor amet, cursus nec consectetur ipsum Aenean tristique, ante Lorem eu, mollis nunc sit id nunc. lacus elit. tortor Fusce adipiscing";
 
-	public static String create(UserDetailsImpl userDetails) {
+	public static String create(UserDetails userDetails) {
 		Instant expire = Instant.now().plus(30, ChronoUnit.DAYS);
 		return "Bearer " + Jwts.builder()
 				.setSubject(userDetails.getUsername())
