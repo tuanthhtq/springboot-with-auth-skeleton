@@ -1,6 +1,0 @@
-
-include 
- .jpa
- .jwt
- .authentication
- 
